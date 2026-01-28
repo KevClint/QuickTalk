@@ -1,0 +1,67 @@
+# Quick Installation Guide
+
+## Step-by-Step Setup (5 Minutes)
+
+### 1. Extract Files
+- Extract the `messaging-app` folder to: `C:\xampp\htdocs\`
+- Final path should be: `C:\xampp\htdocs\messaging-app\`
+
+### 2. Start XAMPP
+- Open XAMPP Control Panel
+- Click "Start" for Apache
+- Click "Start" for MySQL
+
+### 3. Create Database
+- Open browser and go to: `http://localhost/phpmyadmin`
+- Click "New" on the left sidebar
+- Database name: `messaging_app`
+- Click "Create"
+
+### 4. Import Database
+- Select `messaging_app` database
+- Click "Import" tab
+- Click "Choose File"
+- Select `sql/schema.sql` from the messaging-app folder
+- Click "Go" at the bottom
+
+### 5. Open Application
+- Open browser and go to: `http://localhost/messaging-app/`
+- You should see the login page!
+
+### 6. Create Test Accounts
+Register two accounts to test messaging:
+- Username: alice, Email: alice@test.com, Password: 123456
+- Username: bob, Email: bob@test.com, Password: 123456
+
+### 7. Test Messaging
+- Login as Alice in one browser
+- Login as Bob in another browser (or incognito window)
+- Go to "Users" tab and click on each other's name
+- Start chatting!
+
+## Troubleshooting
+
+**Can't access the site?**
+- Make sure Apache is running (green in XAMPP)
+- Check you're using: `http://localhost/messaging-app/`
+
+**Database connection error?**
+- Make sure MySQL is running (green in XAMPP)
+- Verify database name is exactly: `messaging_app`
+
+**No messages appearing?**
+- Press F12 in browser to check for errors
+- Make sure you imported the SQL schema correctly
+
+## Default Configuration
+
+- Database Host: localhost
+- Database Name: messaging_app
+- Database User: root
+- Database Password: (empty)
+
+If you changed MySQL password, edit `config/database.php`
+
+## Need Help?
+
+Check the full README.md for detailed documentation.
