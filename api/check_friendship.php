@@ -2,7 +2,7 @@
 require_once '../config/database.php';
 require_once '../includes/auth.php';
 
-requireLogin();
+requireLogin($pdo);
 
 $currentUserId = $_SESSION['user_id'];
 $recipientId = $_GET['recipient_id'] ?? null;

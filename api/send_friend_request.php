@@ -3,7 +3,7 @@ header('Content-Type: application/json');
 require_once '../config/database.php';
 require_once '../includes/auth.php';
 
-requireLogin();
+requireLogin($pdo);
 
 $currentUserId = $_SESSION['user_id'];
 

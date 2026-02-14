@@ -3,7 +3,7 @@ require_once '../config/database.php';
 require_once '../includes/auth.php';
 require_once '../includes/functions.php';
 
-requireLogin();
+requireLogin($pdo);
 
 $currentUserId = $_SESSION['user_id'];
 $data = json_decode(file_get_contents('php://input'), true);

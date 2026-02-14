@@ -26,7 +26,15 @@ function getCurrentUser($pdo) {
         WHERE id = ?
     ");
     $stmt->execute([getCurrentUserId()]);
-    return $stmt->fetch();
+    $user = $stmt->fetch();
+
+    // Session may be stale if the account was removed.
+    if (!$user) {
+        unset($_SESSION['user_id'], $_SESSION['username']);
+        return null;
+    }
+
+    return $user;
 }
 
 // Login user
@@ -113,8 +121,14 @@ function logoutUser($pdo) {
 }
 
 // Require login (redirect if not logged in)
-function requireLogin() {
+function requireLogin($pdo = null) {
     if (!isLoggedIn()) {
+        header('Location: index.php');
+        exit;
+    }
+
+    // Optional DB validation for stale/invalid sessions.
+    if ($pdo !== null && !getCurrentUser($pdo)) {
         header('Location: index.php');
         exit;
     }
